@@ -71,19 +71,20 @@ function generateTicks(generationOptions, dataRange) {
 	// If min, max and stepSize is set and they make an evenly spaced scale use it.
 	if (stepSize && !isNullOrUndef(min) && !isNullOrUndef(max)) {
 		// If very close to our whole number, use it.
-		if (almostWhole((max - min) / stepSize, spacing / 1000)) {
+		//if (almostWhole((max - min) / stepSize, spacing / 1000)) {
 			niceMin = min;
 			niceMax = max;
-		}
+		//}
 	}
 
 	numSpaces = (niceMax - niceMin) / spacing;
 	// If very close to our rounded value, use it.
-	if (almostEquals(numSpaces, Math.round(numSpaces), spacing / 1000)) {
+	/*if (almostEquals(numSpaces, Math.round(numSpaces), spacing / 1000)) {
 		numSpaces = Math.round(numSpaces);
 	} else {
 		numSpaces = Math.ceil(numSpaces);
-	}
+    }*/
+    numSpaces = stepSize;
 
 	niceMin = Math.round(niceMin * factor) / factor;
 	niceMax = Math.round(niceMax * factor) / factor;
